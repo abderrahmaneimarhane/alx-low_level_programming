@@ -1,39 +1,26 @@
 #include "main.h"
 
 /**
- * _strncpy - A function that copies a string
+ *_strncpy - function that copies a string
  *
- * %dest:poiter to destination input buffer
- * %src:poiter to source input buffer
- * %n:bytes of src
+ * @src: The source of strings
+ * @dest: The destination of the string
+ * @n: The length of int
  *
- * Return: %dest
+ * Return: pointer to the resulting string dest
  */
-
-char *_strncpy(char *dest,char * src, int n)
+char *_strncpy(char *dest, char *src, int n)
 {
-	int i;
+int i;
 
-	/**
-	 * iterate through src array
-	 * where if there is no null byte
-	 * among the first n byte of source
-	 * the string placed in dest will not be
-	 * null terminated
-	 */
-	for (i = 0; i <n && src [i] != '\0'; i++)
-		dest[i] =src [i];
-	/**
-	 *
-	 * if teh length of source is less than n 
-	 * write additonal nullbytesto dest to 
-	 * ensure that a total of n bytes is written
-	 */
-	while (i < n)
+	for (i = 0; i < n && *(src + i); i++)
 	{
-		dest [i] = '\0'
-		i++:
+		*(dest + i) = *(src + i);
 	}
-{
+	for (; i < n; i++)
+	{
+	*(dest + i) = '\0';
+	}
 	return (dest);
+
 }
